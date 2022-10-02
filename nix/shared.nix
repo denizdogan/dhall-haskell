@@ -143,6 +143,15 @@ let
                         }
                       );
 
+                    # https://github.com/vincenthz/hs-gauge/commit/303a6b611804c85b9a6bc1cea5de4e6ce3429d24
+                    gauge = haskellPackagesOld.gauge.overrideAttrs (oldgauge: {
+                        src = builtins.fetchGit {
+                          "url" = "https://github.com/vincenthz/hs-gauge.git";
+                          "rev" = "303a6b611804c85b9a6bc1cea5de4e6ce3429d24";
+                          # "sha256" = "0qn4dphymj67i449830d6lzva07a2wjd16n0c1sf3k6vfan1a0wg";
+                        };
+                      });
+
                     dhall =
                         (applyCoverage
                           (haskellPackagesNew.callCabal2nix
