@@ -39,5 +39,9 @@
     in flake // {
       # Built by `nix build .`
       packages.default = flake.packages."dhall-json:lib:dhall-json";
+      packages.dhall-json = flake.packages."dhall-json:lib:dhall-json";
+      packages.dhall-to-json = flake.packages."dhall-json:exe:dhall-to-json";
+      packages.dhall-to-yaml = flake.packages."dhall-json:exe:dhall-to-yaml";
+      packages.json-to-dhall = flake.packages."dhall-json:exe:json-to-dhall";
     });
 }
