@@ -1,6 +1,6 @@
 {
   description = "A very basic flake";
-  inputs.haskellNix.url = "github:input-output-hk/haskell.nix/0.0.25";
+  inputs.haskellNix.url = "github:input-output-hk/haskell.nix/master";
   inputs.nixpkgs.follows = "haskellNix/nixpkgs-unstable";
   inputs.flake-utils.url = "github:numtide/flake-utils";
   outputs = { self, nixpkgs, flake-utils, haskellNix }:
@@ -19,12 +19,13 @@
                 cabal = {};
                 hlint = {
                   version = "3.4.1";
-                };
+                  };
                 haskell-language-server = {};
               };
               # Non-Haskell shell tools go here
               shell.buildInputs = with pkgs; [
                 nixpkgs-fmt
+                rnix-lsp
               ];
               # This adds `js-unknown-ghcjs-cabal` to the shell.
               # shell.crossPlatforms = p: [p.ghcjs];
